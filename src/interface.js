@@ -1,5 +1,9 @@
 import './styles.css';
 
+import {
+    projectFactory
+} from './projects'
+
 //function to build whole interface using other functions
 export function buildInterface(){
     buildNavBar();
@@ -7,6 +11,9 @@ export function buildInterface(){
     buildTaskArea();
 
 };
+
+
+let projectCollection = []
 
 //function to add title/nav bar
 function buildNavBar(){
@@ -37,25 +44,66 @@ function buildProjectBar(){
     const projectNav = document.createElement('div');
     const projectHeading = document.createElement('div');
     const projectList = document.createElement('ul')
-    const testItem = document.createElement('li')
-    testItem.innerHTML = 'Test Project';
     const addProjectButton = document.createElement('button');
-
 
     projectNav.classList.add('project-nav');
     projectHeading.classList.add('project-heading');
-    projectList.classList.add('project-list');
-    projectList.appendChild(testItem);
+    projectList.id = 'project-list'
     addProjectButton.classList.add('project-button');
-
     projectHeading.innerHTML = 'Projects'
     addProjectButton.innerHTML = 'Add Project'
+
+    addProjectButton.addEventListener('click', function() {
+
+        let title = prompt("Enter Project Name")
+        addProject(title);
+
+    })
+
 
     projectNav.appendChild(projectHeading);
     projectNav.appendChild(projectList);
     projectNav.appendChild(addProjectButton);
 
     content.appendChild(projectNav);
+
+
+    projectCollection.push(projectFactory('General'))
+    refreshProjects()
+
+}
+
+function emptyProjectList(){
+    const projectList = document.getElementById('project-list')
+    while (projectList.firstChild){
+        projectList.removeChild(projectList.firstChild);
+    }
+}
+
+function populateProjectList(){
+    const projectList = document.getElementById('project-list')
+    for (let i = 0; i < projectCollection.length; i++){
+        const projectItem = document.createElement('li');
+        projectItem.innerHTML = projectCollection[i].getProjectName();
+        projectList.appendChild(projectItem);
+    }
+}
+
+function refreshProjects(){
+    emptyProjectList();
+    populateProjectList();
+
+}
+
+function switchProject(){
+
+}
+
+function addProject(projectName){
+    let newProject = projectFactory(projectName);
+    projectCollection.push(newProject);
+    console.log(projectCollection);
+    refreshProjects();
 }
 
 //function to add task area

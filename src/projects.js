@@ -3,15 +3,17 @@ import {
 } from './tasks.js'
 
 
-const projectFactory = (name) => {
-    let projectList = [];
+export const projectFactory = (name) => {
+    let taskList = [];
 
-
-
-    const getProjects = () => projectList;
+    const getProjectName = () => name;
+    const getTasks = () => taskList;
+    const addTask = (title, description, dueDate, priority) => {
+        taskList.append(taskFactory(title, description, dueDate, priority))
+    }
 
 
     return {
-        getProject
+        getProjectName, getTasks, addTask
     }
 }
