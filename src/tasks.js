@@ -6,4 +6,5 @@ const taskFactory = (title, description, dueDate, priority) => {
         dueDate,
         priority
     }
+    
 };
