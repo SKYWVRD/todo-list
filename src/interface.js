@@ -14,6 +14,7 @@ export function buildInterface(){
 
 
 let projectCollection = []
+let currentProject = null;
 
 //function to add title/nav bar
 function buildNavBar(){
@@ -85,6 +86,10 @@ function populateProjectList(){
     for (let i = 0; i < projectCollection.length; i++){
         const projectItem = document.createElement('li');
         projectItem.innerHTML = projectCollection[i].getProjectName();
+        projectItem.addEventListener('click', function () {
+            //switchProject(projectItem.innerHTML)
+            console.log(projectItem.innerHTML);
+        })
         projectList.appendChild(projectItem);
     }
 }
@@ -96,6 +101,13 @@ function refreshProjects(){
 }
 
 function switchProject(){
+    //Grabs text from data value of project and grabs project from project collection
+    //Changes currently selected project
+    //Populates task area with tasks from selected project
+}
+
+function populateTasks() {
+    //Grabs all tasks from project and populates task area
 
 }
 
