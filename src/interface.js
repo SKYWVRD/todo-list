@@ -99,6 +99,7 @@ function populateProjectList(){
         projectItem.addEventListener('click', function () {
             //switchProject(projectItem.innerHTML)
             currentProject = projectCollection[Number(projectItem.dataset.index)];
+            console.log(currentProject.getProjectName());
         })
         projectList.appendChild(projectItem);
     }
@@ -131,6 +132,9 @@ function addProject(projectName){
 //function to add task area
 function buildTaskArea(){
     //contains list of all tasks related to selected project
-    console.log(2);
+    const content = document.getElementById('content');
+    const taskWindow = document.createElement('div');
+    taskWindow.id = 'task-list';
+    content.appendChild(taskWindow);
 
 }
