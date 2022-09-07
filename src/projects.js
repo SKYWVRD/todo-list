@@ -12,7 +12,6 @@ export const projectFactory = (name) => {
         taskList.push(taskFactory(title, description, dueDate, priority))
     }
 
-
     return {
         getProjectName, getTasks, addTask
     }

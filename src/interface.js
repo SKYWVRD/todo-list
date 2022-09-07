@@ -37,12 +37,36 @@ function buildNavBar(){
         let taskDescription = prompt('Enter task Description', 'No Description')
 
         currentProject.addTask(taskTitle, taskDescription, '2022-01-01', 1);
-        console.log(currentProject.getTasks());
+        refreshTaskWindow();
     })
 
     headerBar.appendChild(addTaskButton);
     document.body.prepend(headerBar);
 
+}
+
+function refreshTaskWindow(){
+    clearTaskWindow();
+    populateTaskWindow();
+}
+
+function clearTaskWindow(){
+    const taskList = document.getElementById('task-list')
+    while (taskList.firstChild){
+        taskList.removeChild(taskList.firstChild);
+    }
+}
+
+function populateTaskWindow(){
+    const taskList = document.getElementById('task-list')
+    let projectTasks = currentProject.getTasks();
+    for (let i = 0; i < projectTasks.length; i++){
+        const taskItem = document.createElement('div');
+        taskItem.classList.add('task-card')
+        taskItem.innerHTML = 'This is a task';
+        taskItem.dataset.index = i;
+        taskList.appendChild(taskItem);
+    }
 }
 
 //function to add project bar

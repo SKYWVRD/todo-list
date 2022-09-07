@@ -22,12 +22,12 @@ body {
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     flex-grow: 1;
+    flex-shrink: 0;
     align-items: center;
     flex-direction: column;
     background-color: yellowgreen;
-    width: 20vw;
     max-width: 200px;
-    min-width: fit-content;
+    min-width: 200px;
 }
 
 #project-list {
@@ -74,4 +74,25 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 30px;
     margin: 20px;
+}
+
+#task-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.task-card {
+    width: 200x;
+    height: 150px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 2px 16px;
+    border-radius: 5px;
+}
+
+.task-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
