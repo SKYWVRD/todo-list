@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom:groove;
+    border-bottom: inset 3px rgb(105, 0, 105);
     background-color: purple;
 }
 
@@ -28,6 +28,7 @@ body {
     background-color: yellowgreen;
     max-width: 200px;
     min-width: 200px;
+    border-right: inset 2px grey;
 }
 
 #project-list {
