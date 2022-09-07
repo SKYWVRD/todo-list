@@ -63,7 +63,7 @@ function populateTaskWindow(){
     for (let i = 0; i < projectTasks.length; i++){
         const taskItem = document.createElement('div');
         taskItem.classList.add('task-card')
-        taskItem.innerHTML = 'This is a task';
+        taskItem.innerHTML = projectTasks[i].getTaskName();
         taskItem.dataset.index = i;
         taskList.appendChild(taskItem);
     }
