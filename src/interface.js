@@ -22,16 +22,21 @@ function buildNavBar(){
     //Contains add task button
     const headerBar = document.createElement('div');
     const headerText = document.createElement('div');
-    const addTask = document.createElement('button')
+    const addTaskButton = document.createElement('button')
 
     headerBar.classList.add('heading');
     headerText.classList.add('title');
-    addTask.classList.add('task-button');
+    addTaskButton.classList.add('task-button');
     headerBar.appendChild(headerText);
 
     headerText.innerHTML = 'WhatToDo'
-    addTask.innerHTML = '+'
-    headerBar.appendChild(addTask);
+    addTaskButton.innerHTML = '+'
+
+    addTaskButton.addEventListener('click', function () {
+        
+    })
+
+    headerBar.appendChild(addTaskButton);
     document.body.prepend(headerBar);
 
 }
@@ -61,7 +66,6 @@ function buildProjectBar(){
 
     })
 
-
     projectNav.appendChild(projectHeading);
     projectNav.appendChild(projectList);
     projectNav.appendChild(addProjectButton);
@@ -70,6 +74,7 @@ function buildProjectBar(){
 
 
     projectCollection.push(projectFactory('General'))
+    currentProject = projectCollection[0];
     refreshProjects()
 
 }
@@ -86,9 +91,10 @@ function populateProjectList(){
     for (let i = 0; i < projectCollection.length; i++){
         const projectItem = document.createElement('li');
         projectItem.innerHTML = projectCollection[i].getProjectName();
+        projectItem.dataset.index = i;
         projectItem.addEventListener('click', function () {
             //switchProject(projectItem.innerHTML)
-            console.log(projectItem.innerHTML);
+            currentProject = projectCollection[Number(projectItem.dataset.index)];
         })
         projectList.appendChild(projectItem);
     }
@@ -98,7 +104,7 @@ function refreshProjects(){
     emptyProjectList();
     populateProjectList();
 
-}
+};
 
 function switchProject(){
     //Grabs text from data value of project and grabs project from project collection
