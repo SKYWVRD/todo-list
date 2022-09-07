@@ -123,7 +123,7 @@ function populateProjectList(){
         projectItem.addEventListener('click', function () {
             //switchProject(projectItem.innerHTML)
             currentProject = projectCollection[Number(projectItem.dataset.index)];
-            console.log(currentProject.getProjectName());
+            refreshTaskWindow();
         })
         projectList.appendChild(projectItem);
     }
