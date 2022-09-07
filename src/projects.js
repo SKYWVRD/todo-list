@@ -9,7 +9,7 @@ export const projectFactory = (name) => {
     const getProjectName = () => name;
     const getTasks = () => taskList;
     const addTask = (title, description, dueDate, priority) => {
-        taskList.append(taskFactory(title, description, dueDate, priority))
+        taskList.push(taskFactory(title, description, dueDate, priority))
     }
 
 

@@ -33,7 +33,11 @@ function buildNavBar(){
     addTaskButton.innerHTML = '+'
 
     addTaskButton.addEventListener('click', function () {
-        
+        let taskTitle = prompt('Enter task title', 'Unnamed Task')
+        let taskDescription = prompt('Enter task Description', 'No Description')
+
+        currentProject.addTask(taskTitle, taskDescription, '2022-01-01', 1);
+        console.log(currentProject.getTasks());
     })
 
     headerBar.appendChild(addTaskButton);
