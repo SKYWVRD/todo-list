@@ -85,6 +85,8 @@ body {
 }
 
 .task-card {
+    display: flex;
+    flex-direction: column;
     width: 200px;
     height: 150px;
     margin: 10px;
@@ -94,6 +96,21 @@ body {
     border-radius: 5px;
 }
 
+.task-title {
+    align-self: center;
+    margin-bottom: 5px;
+}
+
 .task-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.delete-button {
+    min-width: fit-content;
+    height: 25px;
+    background-color: red;
+    align-self: flex-end;
+    margin: 5px;
+    margin-top: auto;
+    border-radius: 5px;
 }

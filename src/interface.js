@@ -62,9 +62,22 @@ function populateTaskWindow(){
     let projectTasks = currentProject.getTasks();
     for (let i = 0; i < projectTasks.length; i++){
         const taskItem = document.createElement('div');
+        const taskTitle = document.createElement('div');
+        const taskDescription = document.createElement('div');
+        const deleteTaskButton = document.createElement('button');
+        
         taskItem.classList.add('task-card')
-        taskItem.innerHTML = projectTasks[i].getTaskName();
+        taskTitle.classList.add('task-title');
+        taskDescription.classList.add('task-description');
+        deleteTaskButton.classList.add('delete-button')
+        taskTitle.innerHTML = projectTasks[i].getTaskName();
+        taskDescription.innerHTML = projectTasks[i].getTaskDescription();
+        deleteTaskButton.innerHTML = 'Delete'
         taskItem.dataset.index = i;
+
+        taskItem.appendChild(taskTitle);
+        taskItem.appendChild(taskDescription);
+        taskItem.appendChild(deleteTaskButton);
         taskList.appendChild(taskItem);
     }
 }
