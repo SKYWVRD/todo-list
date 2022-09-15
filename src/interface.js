@@ -101,10 +101,8 @@ function buildProjectBar(){
     addProjectButton.innerHTML = 'Add Project'
 
     addProjectButton.addEventListener('click', function() {
-
         let title = prompt("Enter Project Name")
         addProject(title);
-
     })
 
     projectNav.appendChild(projectHeading);
